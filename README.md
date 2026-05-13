@@ -4,6 +4,27 @@ This repository is the shareable, Codex-owned collection of `cgpt-*` skills.
 It is intended to keep Codex skills separate from Claude/Cowork skill sets while
 making the Codex versions easy to review, improve, install, and contribute to.
 
+## Creator and Maintainer
+
+Created and maintained by **P. V. (Sundar) Balakrishnan**.
+
+This collection grew out of practical academic, teaching, manuscript, document,
+presentation, and software-delivery workflows. The goal is to keep useful Codex
+skills in a public, versioned, contributor-friendly repository rather than as
+one-off local files.
+
+## Acknowledgments
+
+Thanks to the many people who have shared Claude skills, agent workflows,
+prompting patterns, and practical automation examples. Those shared materials
+helped clarify what a reusable skill should include: clear triggers, scoped
+instructions, bundled helper scripts when needed, and enough validation guidance
+for another agent or contributor to improve the work.
+
+This repository contains Codex-owned implementations. Claude/Cowork sources are
+treated as references unless a file is explicitly bundled here with attribution
+or local ownership notes.
+
 ## Layout
 
 Each skill lives in its own lowercase hyphen-case folder:
@@ -67,8 +88,12 @@ over time, so changes should be made here first and then installed.
 - Avoid secrets, credentials, private manuscript data, and user-specific paths.
 - Run `python .\scripts\quick_validate.py` before opening a pull request.
 
-## Publishing Note
+## License and Redistribution
 
-This local repository is ready to connect to GitHub. Before making it public,
-choose an explicit license and review bundled scripts/references for redistribution
-rights.
+Repository-original material is released under the MIT License; see
+[LICENSE](LICENSE).
+
+Bundled scripts and references are tracked in
+[REDISTRIBUTION-REVIEW.md](REDISTRIBUTION-REVIEW.md). Contributors should update
+that review whenever they add copied, adapted, generated, or third-party
+materials.
