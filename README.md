@@ -25,6 +25,18 @@ This repository contains Codex-owned implementations. Claude/Cowork sources are
 treated as references unless a file is explicitly bundled here with attribution
 or local ownership notes.
 
+## Try a Concrete Example
+
+To see what a skill can produce, open the rendered flipcards demo:
+
+- [Open the GitHub Repositories for Scholars flipcards as a web page](https://htmlpreview.github.io/?https://github.com/pvsundar/CGPT-CODEX-SKILLS/blob/main/cgpt-canvas-flipcards/examples/study-flipcards-github-repos-for-scholars.html)
+- [View the source file on GitHub](https://github.com/pvsundar/CGPT-CODEX-SKILLS/blob/main/cgpt-canvas-flipcards/examples/study-flipcards-github-repos-for-scholars.html)
+- [Read the sharing note](cgpt-canvas-flipcards/examples/github-repos-for-scholars-sharing-note.md)
+
+GitHub's normal file view shows HTML as code. The rendered link above uses a
+static preview service so nontechnical readers can experience the same file as
+an interactive web page.
+
 ## Layout
 
 Each skill lives in its own lowercase hyphen-case folder:
