@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GitHub Repositories for Scholars - Flipcards</title>
+  <style>
+    :root {
+      --bg: #f6f8fa;
+      --panel: #ffffff;
+      --text: #17202a;
+      --muted: #5d6775;
+      --accent: #0969da;
+      --accent-dark: #074f9f;
+      --border: #d8dee4;
+      --focus: #bf8700;
+      --success: #1a7f37;
+      --shadow: 0 16px 42px rgba(27, 31, 36, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    main {
+      width: min(1040px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 40px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.65rem);
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px;
+      margin: 20px 0;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: 0 1px 2px rgba(27, 31, 36, 0.04);
+    }
+
+    .filters,
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    button {
+      min-height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #ffffff;
+      color: var(--text);
+      padding: 8px 12px;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    button:hover {
+      border-color: var(--accent);
+      color: var(--accent-dark);
+    }
+
+    button:focus-visible,
+    .card:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    button.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .status {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      position: relative;
+      min-height: 310px;
+      perspective: 1200px;
+      border: 0;
+      background: transparent;
+      padding: 0;
+      text-align: left;
+    }
+
+    .card-inner {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.42s ease;
+      transform-style: preserve-3d;
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .face {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      backface-visibility: hidden;
+    }
+
+    .back {
+      transform: rotateY(180deg);
+    }
+
+    .category {
+      align-self: flex-start;
+      border-radius: 999px;
+      padding: 4px 10px;
+      background: #ddf4ff;
+      color: #0550ae;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .term {
+      margin: 0;
+      font-size: 1.4rem;
+      line-height: 1.18;
+    }
+
+    .hint,
+    .definition,
+    .example {
+      margin: 0;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .definition {
+      font-size: 1.02rem;
+    }
+
+    .example {
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .flip-note {
+      margin-top: auto;
+      color: var(--success);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .empty {
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 640px) {
+      main {
+        width: min(100% - 20px, 1040px);
+        padding-top: 22px;
+      }
+
+      .toolbar {
+        align-items: stretch;
+      }
+
+      .filters,
+      .actions,
+      button {
+        width: 100%;
+      }
+
+      button {
+        justify-content: center;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      .toolbar {
+        display: none;
+      }
+
+      .grid {
+        display: block;
+      }
+
+      .card {
+        min-height: 0;
+        margin: 0 0 14px;
+        page-break-inside: avoid;
+      }
+
+      .card-inner,
+      .card.flipped .card-inner {
+        position: static;
+        transform: none;
+      }
+
+      .face {
+        position: static;
+        box-shadow: none;
+      }
+
+      .front {
+        border-bottom: 0;
+        border-radius: 8px 8px 0 0;
+      }
+
+      .back {
+        transform: none;
+        border-radius: 0 0 8px 8px;
+      }
+
+      .flip-note {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>GitHub Repositories for Scholars</h1>
+      <p class="subtitle">A compact study deck for researchers learning why a public, versioned repository helps make scholarly work more transparent, reusable, and citable.</p>
+    </header>
+
+    <section class="toolbar" aria-label="Flipcard controls">
+      <div class="filters" aria-label="Category filters">
+        <button type="button" class="active" data-filter="All">All</button>
+        <button type="button" data-filter="Core Concepts">Core Concepts</button>
+        <button type="button" data-filter="Scholarly Value">Scholarly Value</button>
+        <button type="button" data-filter="Good Practice">Good Practice</button>
+      </div>
+      <div class="actions">
+        <button type="button" id="shuffle">Shuffle</button>
+        <button type="button" id="reset">Reset</button>
+        <button type="button" id="print">Print</button>
+      </div>
+    </section>
+
+    <p class="status" id="status" aria-live="polite"></p>
+    <section class="grid" id="cards" aria-label="Study flipcards"></section>
+  </main>
+
+  <script>
+    const cards = [
+      {
+        category: "Core Concepts",
+        term: "Repository",
+        hint: "A project home with history.",
+        definition: "A repository is a structured project folder that stores files, change history, documentation, and collaboration context in one place.",
+        example: "A scholar can put article code, synthetic example data, figures, and a README in one repository so others can understand the full workflow."
+      },
+      {
+        category: "Core Concepts",
+        term: "Commit",
+        hint: "A checkpoint with a message.",
+        definition: "A commit records a specific set of changes and explains why those changes were made.",
+        example: "After revising an analysis script, a commit message such as 'Add robustness check for sample exclusions' documents the reason for the update."
+      },
+      {
+        category: "Core Concepts",
+        term: "README",
+        hint: "The front door for readers.",
+        definition: "A README is the first orientation page for a repository, usually explaining purpose, contents, setup steps, and citation or contact information.",
+        example: "A strong README tells a reviewer which script recreates Table 2 and what software version was used."
+      },
+      {
+        category: "Scholarly Value",
+        term: "Transparency",
+        hint: "Show how the work was made.",
+        definition: "Repository sharing lets readers inspect the materials, code, and decisions behind a paper instead of relying only on the final manuscript.",
+        example: "A methods appendix can point to a repository where the exact cleaning and modeling scripts are available."
+      },
+      {
+        category: "Scholarly Value",
+        term: "Reproducibility",
+        hint: "Make reruns easier.",
+        definition: "A repository improves reproducibility by preserving the files and instructions needed to rerun or audit an analysis.",
+        example: "A researcher can clone the repository, install listed packages, and rerun a numbered script sequence to recreate reported figures."
+      },
+      {
+        category: "Scholarly Value",
+        term: "Citation and Credit",
+        hint: "Make scholarly labor visible.",
+        definition: "A public repository can give durable credit for code, data documentation, teaching materials, and reusable research tools.",
+        example: "Adding a citation file and release DOI helps others cite the repository when they reuse a measurement workflow."
+      },
+      {
+        category: "Good Practice",
+        term: "License",
+        hint: "State reuse rules.",
+        definition: "A license tells others what they may do with the repository contents and under what conditions.",
+        example: "MIT can fit reusable code, while data and manuscript text may need a more restrictive or discipline-specific choice."
+      },
+      {
+        category: "Good Practice",
+        term: "Do Not Share Secrets",
+        hint: "Public means public.",
+        definition: "Repositories should not contain passwords, API keys, identifiable private data, or restricted manuscript materials.",
+        example: "Use environment variables for tokens and provide a synthetic sample dataset when the real participant data cannot be shared."
+      },
+      {
+        category: "Good Practice",
+        term: "Small, Clear Files",
+        hint: "Readers should find the path.",
+        definition: "A useful repository uses clear names, shallow organization, and focused files so readers can follow the project without guesswork.",
+        example: "Folders such as data-cleaning, analysis, figures, and manuscript are easier to navigate than a single crowded project directory."
+      },
+      {
+        category: "Good Practice",
+        term: "Release",
+        hint: "Freeze a shareable version.",
+        definition: "A release marks a stable version of the repository that corresponds to a paper, teaching module, or public deliverable.",
+        example: "Create a release for 'version submitted with May 2026 manuscript' so later edits do not obscure what reviewers saw."
+      }
+    ];
+
+    const grid = document.querySelector("#cards");
+    const status = document.querySelector("#status");
+    const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
+    let activeFilter = "All";
+    let workingCards = [...cards];
+
+    function visibleCards() {
+      return activeFilter === "All"
+        ? workingCards
+        : workingCards.filter((card) => card.category === activeFilter);
+    }
+
+    function render() {
+      const current = visibleCards();
+      grid.innerHTML = "";
+      status.textContent = `${current.length} of ${cards.length} cards shown. Select a card to flip it.`;
+
+      if (current.length === 0) {
+        grid.innerHTML = '<p class="empty">No cards match this filter.</p>';
+        return;
+      }
+
+      current.forEach((card, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "card";
+        button.setAttribute("aria-label", `Flip card ${index + 1}: ${card.term}`);
+        button.innerHTML = `
+          <span class="card-inner">
+            <span class="face front">
+              <span class="category">${card.category}</span>
+              <strong class="term">${card.term}</strong>
+              <span class="hint">${card.hint}</span>
+              <span class="flip-note">Flip for definition</span>
+            </span>
+            <span class="face back">
+              <span class="category">${card.category}</span>
+              <strong class="term">${card.term}</strong>
+              <span class="definition">${card.definition}</span>
+              <span class="example"><strong>Example:</strong> ${card.example}</span>
+            </span>
+          </span>
+        `;
+        button.addEventListener("click", () => button.classList.toggle("flipped"));
+        grid.appendChild(button);
+      });
+    }
+
+    function shuffleCards() {
+      workingCards = [...workingCards]
+        .map((card) => ({ card, order: Math.random() }))
+        .sort((a, b) => a.order - b.order)
+        .map((entry) => entry.card);
+      render();
+    }
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter;
+        filterButtons.forEach((item) => item.classList.toggle("active", item === button));
+        render();
+      });
+    });
+
+    document.querySelector("#shuffle").addEventListener("click", shuffleCards);
+    document.querySelector("#reset").addEventListener("click", () => {
+      activeFilter = "All";
+      workingCards = [...cards];
+      filterButtons.forEach((button) => button.classList.toggle("active", button.dataset.filter === "All"));
+      render();
+    });
+    document.querySelector("#print").addEventListener("click", () => window.print());
+
+    render();
+  </script>
+</body>
+</html>

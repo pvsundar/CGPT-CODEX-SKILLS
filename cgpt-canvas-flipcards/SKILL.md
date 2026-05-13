@@ -79,3 +79,14 @@ Before delivery:
 - check that all cards have term, hint, definition, and example
 - open with Browser when visual/interactivity verification is requested or practical
 - provide exact local path and Canvas embed snippet
+
+## Bundled Example
+
+This repository includes a tested showcase example at:
+
+```text
+cgpt-canvas-flipcards/examples/study-flipcards-github-repos-for-scholars.html
+```
+
+Use the paired Markdown and HTML notes in the same folder when demonstrating
+what the skill produces and how the artifact can be shared.
