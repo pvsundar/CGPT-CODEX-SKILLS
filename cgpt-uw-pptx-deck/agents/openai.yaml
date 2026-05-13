@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT UW PPTX Deck"
+  short_description: "Build and verify UW-branded PowerPoint decks."
+  default_prompt: "Create or polish this UW PowerPoint deck and verify branding, readability, and source-backed claims."

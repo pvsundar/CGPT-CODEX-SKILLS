@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Tool Routing Lessons"
+  short_description: "Choose safe Codex file and connector routing."
+  default_prompt: "Diagnose the safest Codex tool route for this path, connector, or sandbox-boundary task."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Author Reviser"
+  short_description: "Apply approved reviewer-driven manuscript revisions."
+  default_prompt: "Build a revision plan and edit preview from this reviewer feedback before applying manuscript changes."

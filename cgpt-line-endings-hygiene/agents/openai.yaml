@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Line Endings Hygiene"
+  short_description: "Avoid noisy CRLF/LF diffs"
+  default_prompt: "Use $cgpt-line-endings-hygiene before editing this Windows-origin file."

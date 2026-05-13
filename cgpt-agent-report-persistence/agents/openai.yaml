@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Agent Report Persistence"
+  short_description: "Persist subagent reports before closeout"
+  default_prompt: "Use $cgpt-agent-report-persistence to save the verifier return before closing this thread."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Render Check"
+  short_description: "Validate rendered documents, decks, PDFs, and HTML outputs."
+  default_prompt: "Validate this rendered output and report pass, warning, and failure checks."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Netlify Deploy"
+  short_description: "Deploy React SPAs on Netlify safely."
+  default_prompt: "Prepare and verify this app for Netlify deployment."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Manuscript Recovery"
+  short_description: "Recover manuscript status and next actions"
+  default_prompt: "Use $cgpt-manuscript-recovery to inspect this manuscript folder and produce a recovery map."

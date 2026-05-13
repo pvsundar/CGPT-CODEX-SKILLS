@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Data Viz Auditor"
+  short_description: "Audit figures, maps, labels, color, accessibility, and journal readiness."
+  default_prompt: "Use $cgpt-data-viz-auditor to audit this figure or plotting code and identify concrete fixes."

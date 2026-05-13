@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Citation Bib Audit"
+  short_description: "Audit APA citations, BibTeX consistency, and user-triggered deep reference verification."
+  default_prompt: "Audit this manuscript's citations and bibliography, then report issues without editing source files."

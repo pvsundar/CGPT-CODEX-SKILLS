@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Insights"
+  short_description: "Generate local Codex or project activity insights reports."
+  default_prompt: "Create an insights report for recent local project activity."

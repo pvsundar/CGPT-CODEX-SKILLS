@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Presentation Prep"
+  short_description: "Verify manuscript facts and visual assets before deck generation."
+  default_prompt: "Extract and verify the source-backed facts, numbers, and visuals needed before building this presentation."

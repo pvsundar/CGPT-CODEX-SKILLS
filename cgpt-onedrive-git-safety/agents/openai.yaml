@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT OneDrive Git Safety"
+  short_description: "Use Git safely in synced Windows repos"
+  default_prompt: "Use $cgpt-onedrive-git-safety before changing Git state in this OneDrive repository."

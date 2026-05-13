@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Backup"
+  short_description: "Create timestamped backups before risky edits."
+  default_prompt: "Back up the specified file or folder before continuing."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Academic DOCX Authoring"
+  short_description: "Create and edit academic Word deliverables."
+  default_prompt: "Create or revise this academic DOCX deliverable and verify the output."

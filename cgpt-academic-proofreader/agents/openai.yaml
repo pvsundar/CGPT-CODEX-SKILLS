@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Academic Proofreader"
+  short_description: "Produce report-only academic manuscript proofreading and readiness checks."
+  default_prompt: "Proofread this academic manuscript and report prioritized issues with proposed fixes, without editing source files."

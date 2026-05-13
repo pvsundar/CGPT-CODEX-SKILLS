@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Stats Audit"
+  short_description: "Run report-only statistical audits against manuscript numbers and source data."
+  default_prompt: "Audit this manuscript's reported statistics against source data and report mismatches without editing manuscripts."

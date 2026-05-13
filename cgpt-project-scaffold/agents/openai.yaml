@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Project Scaffold"
+  short_description: "Plan and create research or teaching project workspaces."
+  default_prompt: "Propose a conservative project scaffold first, then create it only after approval."

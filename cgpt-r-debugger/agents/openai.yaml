@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT R Debugger"
+  short_description: "Run reproducible R debugging, profiling, and edge-case tests."
+  default_prompt: "Debug this R code with a reproducible harness, profile bottlenecks if needed, and report the evidence before editing files."

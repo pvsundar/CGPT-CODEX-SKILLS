@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Canvas Flipcards"
+  short_description: "Create interactive HTML flipcards for Canvas."
+  default_prompt: "Create a self-contained flipcard HTML study tool and Canvas embed instructions for this topic."

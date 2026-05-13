@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Census API"
+  short_description: "Plan and query U.S. Census data workflows."
+  default_prompt: "Build a Census data query or reproducible R/Python workflow for this geography and variable set."

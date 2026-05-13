@@ -1,0 +1,33 @@
+# OS/editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.temp
+~$*
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Local environments and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+
+# Local build/export artifacts
+dist/
+build/
+out/
+*.log
+
+# Codex/local scratch
+.codex-local/
+scratch/

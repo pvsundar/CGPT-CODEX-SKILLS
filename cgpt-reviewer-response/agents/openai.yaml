@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Reviewer Response"
+  short_description: "Draft and audit response-to-reviewers letters."
+  default_prompt: "Draft a response-to-reviewers letter from these comments and revision notes."

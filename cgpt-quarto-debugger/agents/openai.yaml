@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Quarto Debugger"
+  short_description: "Fix Quarto source, YAML, citations, crossrefs, and includes."
+  default_prompt: "Use $cgpt-quarto-debugger to diagnose this Quarto source/render failure and verify the fix."

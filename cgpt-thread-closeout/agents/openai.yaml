@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Thread Closeout"
+  short_description: "Create durable closeout and handoff artifacts."
+  default_prompt: "Close out this thread with status, handoff, and next-task notes."

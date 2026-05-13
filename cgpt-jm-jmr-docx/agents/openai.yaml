@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT JM/JMR DOCX"
+  short_description: "Format Word manuscripts for JM and JMR."
+  default_prompt: "Convert this Word manuscript into JM or JMR submission style."
