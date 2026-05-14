@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Adversarial Reviewer"
+  short_description: "Simulate a skeptical Reviewer 2 for academic manuscripts."
+  default_prompt: "Run a report-only adversarial Reviewer 2 review of this academic work, with major issues, minor issues, empirical audit findings where relevant, and the highest-value revision."

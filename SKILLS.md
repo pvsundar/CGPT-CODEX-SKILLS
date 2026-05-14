@@ -6,6 +6,7 @@ This index lists the Codex-owned skills currently staged in this repository.
 | --- | --- |
 | `cgpt-academic-docx-authoring` | Create, edit, structure, and verify academic Word DOCX artifacts. |
 | `cgpt-academic-proofreader` | Report-only academic proofreading for grammar, style, argument flow, citations, statistics, and Quarto readiness. |
+| `cgpt-adversarial-reviewer` | Produce report-only skeptical Reviewer 2 reviews and empirical audit findings for academic work. |
 | `cgpt-agent-report-persistence` | Save subagent, verifier, reviewer, synthesizer, or audit reports as durable files. |
 | `cgpt-author-reviser` | Execute approved academic manuscript revisions from referee reports or revision plans. |
 | `cgpt-backup` | Create timestamped backups before edits, formatting, bulk replacement, or risky automation. |

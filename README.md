@@ -61,7 +61,7 @@ Priority areas for this collection are:
 
 - Academic DOCX authoring and journal-ready Word formatting.
 - UW and UW Bothell slide deck creation.
-- Manuscript recovery, reviewer response, stats/citation audits, and render QA.
+- Manuscript recovery, adversarial review, reviewer response, stats/citation audits, and render QA.
 - Codex operational utilities such as backup, closeout, Git safety, and routing.
 
 ## Validation

@@ -19,6 +19,7 @@ references, and repository metadata.
 | Path | Status | Notes |
 | --- | --- | --- |
 | `scripts/quick_validate.py` | Repository-original | Lightweight structural validator for this repository. |
+| `cgpt-adversarial-reviewer/SKILL.md` | Repository-original/adapted design | Codex-owned synthesis inspired by local manuscript review workflows; no third-party text copied verbatim. |
 | `cgpt-backup/scripts/make_backup.py` | Repository-original | Helper script for timestamped local backups. |
 | `cgpt-render-check/scripts/render_check.py` | Repository-original | Helper script for local render-output checks. |
 | `cgpt-jm-jmr-docx/scripts/pvb_format_docx.R` | Locally owned/adapted workflow material | Bundled as part of the user's JM/JMR DOCX formatting workflow. |

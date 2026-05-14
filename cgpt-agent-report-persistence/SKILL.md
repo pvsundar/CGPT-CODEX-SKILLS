@@ -23,6 +23,8 @@ archive/reports/<session-or-task>_<agent-role>_YYYY-MM-DD[_HHMM].md
 
 Create `archive/reports/` if it does not exist. Use `_HHMM` when more than one report from the same role is saved on the same date.
 
+If the project already has a clear audit folder, use that existing pattern instead and keep the filename equally explicit.
+
 ## File Header
 
 ```markdown
@@ -38,6 +40,27 @@ verdict: <pass | fail | mixed | n/a>
 # <agent-role> return - <session-or-task> - YYYY-MM-DD
 
 <verbatim return text>
+```
+
+## Helper Script
+
+Use the helper when you have report text in a file or can pipe it from the shell. It creates `archive/reports/`, refuses empty reports, writes the standard header, and prints the saved path.
+
+```powershell
+python C:\Users\sundar\.codex\skills\cgpt-agent-report-persistence\scripts\save_agent_report.py `
+  --project "C:\path\to\project" `
+  --session "D5 closeout" `
+  --agent "verifier" `
+  --invocation "Verify final report artifacts and residual risks" `
+  --inputs "REPORT.md; output.html" `
+  --verdict mixed `
+  --input "C:\path\to\verifier-return.md"
+```
+
+For short reports, pipe text directly:
+
+```powershell
+"Verifier found no blocking issues." | python C:\Users\sundar\.codex\skills\cgpt-agent-report-persistence\scripts\save_agent_report.py --session "smoke test" --agent verifier --invocation "Check demo output" --verdict pass
 ```
 
 ## Handoff Requirement
@@ -72,3 +95,5 @@ If the original return was lost:
 - Do not trim failures or caveats from the saved report.
 - Do not store decision-driving agent output only in a final chat message.
 - Pair with `cgpt-thread-closeout` when ending a session.
+- If multiple agents return material findings, save each report separately before synthesis.
+- If a saved report contains sensitive material, keep it project-local and report the path without copying the contents into the final answer.
