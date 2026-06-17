@@ -8,17 +8,20 @@ $pathParts = @(
     "$systemRoot",
     "$systemRoot\System32\Wbem",
     "$systemRoot\System32\WindowsPowerShell\v1.0",
-    "C:\Program Files\Quarto\bin"
+    "C:\Program Files\Quarto\bin",
+    "C:\Users\sundar\AppData\Local\Programs\Python\Python314"
 )
 
 $rRoot = "C:\Users\sundar\AppData\Local\Programs\R"
+$rBin = $null
 if (Test-Path -LiteralPath $rRoot) {
     $rDir = Get-ChildItem -LiteralPath $rRoot -Directory |
         Where-Object { $_.Name -match '^R-\d+\.\d+\.\d+$' } |
         Sort-Object { [Version]($_.Name -replace '^R-', '') } -Descending |
         Select-Object -First 1
     if ($rDir) {
-        $pathParts += (Join-Path $rDir.FullName 'bin\x64')
+        $rBin = Join-Path $rDir.FullName 'bin\x64'
+        $pathParts += $rBin
     }
 }
 
@@ -34,4 +37,5 @@ if (-not (Test-Path -LiteralPath $quartoExe)) {
 
 Set-Alias quarto $quartoExe -Scope Global
 Write-Host "[preamble] Quarto: $quartoExe"
+Write-Host "[preamble] R:      $rBin"
 Write-Host "[preamble] PWD:    $PWD"

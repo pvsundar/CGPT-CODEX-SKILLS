@@ -60,12 +60,14 @@ library(xml2)
 
 # ── Configuration (matches pvb-template_TABLES_v3.docx) ──────────────────────
 FONT_NAME          <- "Calibri"
-FONT_SIZE_HP       <- 22L       # 11pt in half-points
+FONT_SIZE_HP       <- 20L       # 10pt in half-points
+FONT_SIZE_SMALL_HP <- 18L       # 9pt for very wide tables
 FONT_SIZE_NOTE_HP  <- 20L       # 10pt for table notes
 BORDER_THICK_SZ    <- 12L       # 1.5pt in eighth-points (Word's border sz)
 BORDER_THIN_SZ     <- 4L        # 0.5pt
 CELL_PAD_TB        <- 60L       # top/bottom cell padding in twips
-CELL_PAD_LR        <- 100L      # left/right cell padding in twips
+CELL_PAD_LR        <- 80L       # left/right cell padding in twips
+TABLE_WIDTH_TWIPS  <- 9630L     # Letter text width from pvb_format_text margins
 
 # ── Behavior toggles ─────────────────────────────────────────────────────────
 STRIP_BODY_BOLD    <- TRUE      # TRUE: enforce body cells non-bold
@@ -113,6 +115,67 @@ make_tcMar <- function() {
   ), NS["w"], CELL_PAD_TB, CELL_PAD_TB, CELL_PAD_LR, CELL_PAD_LR)
 }
 
+table_col_weights <- function(n_cols, headers = character(0)) {
+  if (n_cols <= 1) return(1)
+  headers_l <- tolower(trimws(headers))
+
+  if (n_cols == 2) return(c(0.55, 0.45))
+  if (n_cols == 3) return(c(0.34, 0.33, 0.33))
+  if (n_cols == 4) return(c(0.16, 0.22, 0.22, 0.40))
+  if (n_cols == 5) {
+    if (any(headers_l == "n") && any(grepl("anchor", headers_l))) {
+      return(c(0.13, 0.20, 0.20, 0.07, 0.40))
+    }
+    if (length(headers_l) > 0 && headers_l[[1]] == "metric") {
+      return(c(0.28, 0.18, 0.18, 0.18, 0.18))
+    }
+    return(c(0.12, 0.20, 0.22, 0.23, 0.23))
+  }
+
+  remaining <- n_cols - 1
+  c(0.14, rep(0.86 / remaining, remaining))
+}
+
+apply_table_widths <- function(tbl, rows, n_cols) {
+  if (n_cols < 1) return(invisible(NULL))
+
+  tblPr <- xml_find_first(tbl, "w:tblPr", ns = NS)
+  upsert_child(tblPr, "w:tblW",
+    sprintf('<w:tblW w:w="5000" w:type="pct" xmlns:w="%s"/>', NS["w"]))
+  upsert_child(tblPr, "w:tblLayout",
+    sprintf('<w:tblLayout w:type="fixed" xmlns:w="%s"/>', NS["w"]))
+
+  header_cells <- if (length(rows) > 0) xml_find_all(rows[[1]], "w:tc", ns = NS) else list()
+  header_text <- vapply(header_cells, function(x) trimws(get_para_text(x)), character(1))
+  weights <- table_col_weights(n_cols, header_text)
+  widths <- pmax(720L, as.integer(round(TABLE_WIDTH_TWIPS * weights / sum(weights))))
+  widths[length(widths)] <- widths[length(widths)] + TABLE_WIDTH_TWIPS - sum(widths)
+
+  grid <- xml_find_first(tbl, "w:tblGrid", ns = NS)
+  if (!inherits(grid, "xml_missing")) xml_remove(grid)
+  grid_xml <- paste0(
+    sprintf('<w:tblGrid xmlns:w="%s">', NS["w"]),
+    paste(sprintf('<w:gridCol w:w="%d"/>', widths), collapse = ""),
+    '</w:tblGrid>'
+  )
+  xml_add_child(tbl, read_xml(grid_xml), .where = 1)
+
+  for (tr in rows) {
+    cells <- xml_find_all(tr, "w:tc", ns = NS)
+    for (c_idx in seq_along(cells)) {
+      if (c_idx > length(widths)) next
+      tcPr <- xml_find_first(cells[[c_idx]], "w:tcPr", ns = NS)
+      if (!inherits(tcPr, "xml_missing")) {
+        upsert_child(tcPr, "w:tcW",
+          sprintf('<w:tcW w:w="%d" w:type="dxa" xmlns:w="%s"/>',
+                  widths[[c_idx]], NS["w"]))
+      }
+    }
+  }
+
+  invisible(NULL)
+}
+
 
 # ══════════════════════════════════════════════════════════════════════════════
 # FORMAT ONE TABLE
@@ -145,6 +208,12 @@ format_one_table <- function(tbl) {
   # ── 2. Process rows ───────────────────────────────────────────────────────
   rows <- xml_find_all(tbl, "w:tr", ns = NS)
   n_rows <- length(rows)
+  n_cols <- if (n_rows > 0) max(vapply(rows, function(x) {
+    length(xml_find_all(x, "w:tc", ns = NS))
+  }, integer(1))) else 0L
+  table_font_size <- if (n_cols >= 6) FONT_SIZE_SMALL_HP else FONT_SIZE_HP
+
+  apply_table_widths(tbl, rows, n_cols)
 
   for (r_idx in seq_along(rows)) {
     tr <- rows[[r_idx]]
@@ -194,7 +263,7 @@ format_one_table <- function(tbl) {
       # ── Format paragraphs in cell ────────────────────────────────────────
       paragraphs <- xml_find_all(tc, "w:p", ns = NS)
       for (p in paragraphs) {
-        format_cell_paragraph(p, is_header, c_idx)
+        format_cell_paragraph(p, is_header, c_idx, table_font_size)
       }
     }
   }
@@ -205,7 +274,7 @@ format_one_table <- function(tbl) {
 # FORMAT PARAGRAPH INSIDE A TABLE CELL
 # ══════════════════════════════════════════════════════════════════════════════
 
-format_cell_paragraph <- function(p, is_header, col_idx) {
+format_cell_paragraph <- function(p, is_header, col_idx, font_size_hp = FONT_SIZE_HP) {
 
   pPr <- xml_find_first(p, "w:pPr", ns = NS)
   if (inherits(pPr, "xml_missing")) {
@@ -226,13 +295,19 @@ format_cell_paragraph <- function(p, is_header, col_idx) {
     sprintf('<w:spacing w:line="240" w:lineRule="auto" w:before="0" w:after="0" xmlns:w="%s"/>',
             NS["w"]))
 
+  # Clear inherited body/list indents inside table cells. Leaving these in place
+  # can push first-column text under the cell boundary and clip leading digits.
+  upsert_child(pPr, "w:ind",
+    sprintf('<w:ind w:left="0" w:right="0" w:firstLine="0" xmlns:w="%s"/>',
+            NS["w"]))
+
   # Paragraph-level rPr (default font for the paragraph)
   pPr_rPr <- xml_find_first(pPr, "w:rPr", ns = NS)
   if (inherits(pPr_rPr, "xml_missing")) {
     xml_add_child(pPr, read_xml(sprintf('<w:rPr xmlns:w="%s"/>', NS["w"])))
     pPr_rPr <- xml_find_first(pPr, "w:rPr", ns = NS)
   }
-  set_font_props(pPr_rPr, FONT_SIZE_HP)
+  set_font_props(pPr_rPr, font_size_hp)
 
   # Format each run
   runs <- xml_find_all(p, "w:r", ns = NS)
@@ -244,7 +319,7 @@ format_cell_paragraph <- function(p, is_header, col_idx) {
       rPr <- xml_find_first(r, "w:rPr", ns = NS)
     }
 
-    set_font_props(rPr, FONT_SIZE_HP)
+    set_font_props(rPr, font_size_hp)
 
     # Bold: header ON; body conditional
     if (is_header) {

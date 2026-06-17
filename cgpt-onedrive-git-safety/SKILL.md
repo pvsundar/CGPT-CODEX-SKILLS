@@ -13,6 +13,7 @@ Use this skill when a repo is inside a cloud-synced folder or when a Git closeou
 2. Detect synced path indicators: `OneDrive -`, `OneDrive\`, `Google Drive`, `Dropbox`, `iCloud Drive`, `Box`.
 3. Run Git from Windows-native PowerShell in this Codex environment. Treat bash-side Git reports from synced folders as advisory only.
 4. If the user names a sibling folder or repo as no-touch, write down that boundary and do not inspect or modify it unless asked.
+5. If Windows-native Git and another shell disagree, trust the Windows-native report for synced paths.
 
 ## Dirty Worktree Discipline
 
@@ -40,6 +41,8 @@ Before saying "tests pass", "build is clean", or "committed state is verified":
 3. For high-stakes delivery, verify from a clean worktree or temporary worktree rather than only the live edited folder.
 
 If full verification is not feasible, qualify the claim precisely.
+
+On a synced filesystem, a runtime green check is not the same as a committed-state green check. When the claim is about `HEAD`, inspect the relevant `HEAD` blobs or run the pipeline from a temporary worktree/archive of that commit before calling it verified.
 
 ## Line Endings
 

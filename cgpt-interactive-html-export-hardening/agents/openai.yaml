@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Interactive HTML Hardening"
+  short_description: "Harden editable single-file HTML export/import flows."
+  default_prompt: "Harden this interactive HTML artifact so JSON and exported HTML preserve user edits."

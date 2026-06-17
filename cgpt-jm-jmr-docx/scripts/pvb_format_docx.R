@@ -181,7 +181,18 @@ if (!skip_tables) {
 
   # If text step wrote to output_file, tables step reads from there
   tables_input <- if (!skip_text) output_file else docx_file
-  format_tables(tables_input, output_file)
+  if (normalizePath(tables_input, mustWork = FALSE) ==
+      normalizePath(output_file, mustWork = FALSE)) {
+    tmp_tables_output <- paste0(tools::file_path_sans_ext(output_file),
+                                "_tables_tmp.docx")
+    format_tables(tables_input, tmp_tables_output)
+    if (!file.copy(tmp_tables_output, output_file, overwrite = TRUE)) {
+      stop("Could not replace table-formatted output: ", output_file)
+    }
+    unlink(tmp_tables_output, force = TRUE)
+  } else {
+    format_tables(tables_input, output_file)
+  }
 }
 
 # ── Step 4: Python fallback (notes + front-matter) ────────────────────────

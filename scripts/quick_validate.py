@@ -26,11 +26,10 @@ def parse_front_matter(text: str) -> dict[str, str]:
 
 
 def skill_dirs() -> list[Path]:
-    ignored = {".git", "scripts", "__pycache__"}
     return sorted(
         path
         for path in ROOT.iterdir()
-        if path.is_dir() and path.name not in ignored and not path.name.startswith(".")
+        if path.is_dir() and NAME_RE.match(path.name)
     )
 
 

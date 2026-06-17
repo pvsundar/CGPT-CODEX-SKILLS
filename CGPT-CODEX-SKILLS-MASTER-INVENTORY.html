@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CGPT Codex Skills Master Inventory</title>
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #5d6d7e;
+      --line: #d8dee9;
+      --panel: #ffffff;
+      --bg: #f6f8fb;
+      --accent: #3b6ea8;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.45;
+    }
+    header {
+      padding: 32px max(24px, 6vw) 20px;
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: 0;
+    }
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .meta {
+      color: var(--muted);
+      margin: 0;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 900px;
+    }
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+    th {
+      background: #eef3f8;
+      color: #1f3b57;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+    code {
+      font-family: Consolas, "Liberation Mono", monospace;
+      font-size: 0.95em;
+    }
+    .skill-card {
+      margin-top: 16px;
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .skill-card h2 {
+      margin: 0 0 6px;
+      color: var(--accent);
+      font-size: 22px;
+    }
+    .short {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+    dl {
+      display: grid;
+      grid-template-columns: minmax(150px, 220px) 1fr;
+      gap: 8px 16px;
+      margin: 0;
+    }
+    dt {
+      font-weight: 700;
+      color: #2c3e50;
+    }
+    dd {
+      margin: 0;
+    }
+    @media (max-width: 720px) {
+      dl {
+        grid-template-columns: 1fr;
+      }
+      dt {
+        margin-top: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CGPT Codex Skills Master Inventory</h1>
+    <p class="meta">Generated: 2026-06-17 16:04 | Skill folders inventoried: 29</p>
+  </header>
+  <main>
+    <section class="table-wrap" aria-label="Skill summary table">
+      <table>
+        <thead>
+          <tr>
+            <th>Skill</th>
+            <th>Agent Display</th>
+            <th>Short Description</th>
+            <th>Invocation</th>
+            <th>Resources</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>cgpt-academic-docx-authoring</code></td><td>CGPT Academic DOCX Authoring</td><td>Create and edit academic Word deliverables.</td><td><code>$cgpt-academic-docx-authoring</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-academic-proofreader</code></td><td>CGPT Academic Proofreader</td><td>Produce report-only academic manuscript proofreading and readiness checks.</td><td><code>$cgpt-academic-proofreader</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-adversarial-reviewer</code></td><td>CGPT Adversarial Reviewer</td><td>Simulate a skeptical Reviewer 2 for academic manuscripts.</td><td><code>$cgpt-adversarial-reviewer</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-agent-report-persistence</code></td><td>CGPT Agent Report Persistence</td><td>Persist subagent reports before closeout</td><td><code>$cgpt-agent-report-persistence</code></td><td>1 scripts</td></tr>
+          <tr><td><code>cgpt-author-reviser</code></td><td>CGPT Author Reviser</td><td>Apply approved reviewer-driven manuscript revisions.</td><td><code>$cgpt-author-reviser</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-backup</code></td><td>CGPT Backup</td><td>Create timestamped backups before risky edits.</td><td><code>$cgpt-backup</code></td><td>1 scripts</td></tr>
+          <tr><td><code>cgpt-canvas-flipcards</code></td><td>CGPT Canvas Flipcards</td><td>Create interactive HTML flipcards for Canvas.</td><td><code>$cgpt-canvas-flipcards</code></td><td>6 examples</td></tr>
+          <tr><td><code>cgpt-census-api</code></td><td>CGPT Census API</td><td>Plan and query U.S. Census data workflows.</td><td><code>$cgpt-census-api</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-citation-bib-audit</code></td><td>CGPT Citation Bib Audit</td><td>Audit APA citations, BibTeX consistency, and user-triggered deep reference verification.</td><td><code>$cgpt-citation-bib-audit</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-data-viz-auditor</code></td><td>CGPT Data Viz Auditor</td><td>Audit figures, maps, labels, color, accessibility, and journal readiness.</td><td><code>$cgpt-data-viz-auditor</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-insights</code></td><td>CGPT Insights</td><td>Generate local Codex or project activity insights reports.</td><td><code>$cgpt-insights</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-interactive-html-export-hardening</code></td><td>CGPT Interactive HTML Hardening</td><td>Harden editable single-file HTML export/import flows.</td><td><code>$cgpt-interactive-html-export-hardening</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-jm-jmr-docx</code></td><td>CGPT JM/JMR DOCX</td><td>Format Word manuscripts with the PVB/JM/JMR DOCX pipeline.</td><td><code>$cgpt-jm-jmr-docx</code></td><td>3 scripts, 2 refs</td></tr>
+          <tr><td><code>cgpt-line-endings-hygiene</code></td><td>CGPT Line Endings Hygiene</td><td>Avoid noisy CRLF/LF diffs</td><td><code>$cgpt-line-endings-hygiene</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-manuscript-recovery</code></td><td>CGPT Manuscript Recovery</td><td>Recover manuscript status and next actions</td><td><code>$cgpt-manuscript-recovery</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-netlify-deploy</code></td><td>CGPT Netlify Deploy</td><td>Deploy React SPAs on Netlify safely.</td><td><code>$cgpt-netlify-deploy</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-onedrive-git-safety</code></td><td>CGPT OneDrive Git Safety</td><td>Use Git safely in synced Windows repos</td><td><code>$cgpt-onedrive-git-safety</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-portfolio-dashboard-interactive</code></td><td>CGPT Portfolio Dashboard Interactive</td><td>Build the editable PVB portfolio dashboard with v4 taxonomy.</td><td><code>$cgpt-portfolio-dashboard-interactive</code></td><td>1 scripts</td></tr>
+          <tr><td><code>cgpt-presentation-prep</code></td><td>CGPT Presentation Prep</td><td>Verify manuscript facts and visual assets before deck generation.</td><td><code>$cgpt-presentation-prep</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-project-scaffold</code></td><td>CGPT Project Scaffold</td><td>Plan and create research or teaching project workspaces.</td><td><code>$cgpt-project-scaffold</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-quarto-debugger</code></td><td>CGPT Quarto Debugger</td><td>Fix Quarto source, YAML, citations, crossrefs, and includes.</td><td><code>$cgpt-quarto-debugger</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-quarto-render-windows</code></td><td>CGPT Quarto Render Windows</td><td>Harden and verify Quarto renders on Windows.</td><td><code>$cgpt-quarto-render-windows</code></td><td>1 assets</td></tr>
+          <tr><td><code>cgpt-r-debugger</code></td><td>CGPT R Debugger</td><td>Run reproducible R debugging, profiling, and edge-case tests.</td><td><code>$cgpt-r-debugger</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-render-check</code></td><td>CGPT Render Check</td><td>Validate rendered documents, decks, PDFs, and HTML outputs.</td><td><code>$cgpt-render-check</code></td><td>1 scripts</td></tr>
+          <tr><td><code>cgpt-reviewer-response</code></td><td>CGPT Reviewer Response</td><td>Draft and audit response-to-reviewers letters.</td><td><code>$cgpt-reviewer-response</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-stats-audit</code></td><td>CGPT Stats Audit</td><td>Run report-only statistical audits against manuscript numbers and source data.</td><td><code>$cgpt-stats-audit</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-thread-closeout</code></td><td>CGPT Thread Closeout</td><td>Create durable closeout and handoff artifacts.</td><td><code>$cgpt-thread-closeout</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-tool-routing-lessons</code></td><td>CGPT Tool Routing Lessons</td><td>Choose safe Codex file and connector routing.</td><td><code>$cgpt-tool-routing-lessons</code></td><td>none</td></tr>
+          <tr><td><code>cgpt-uw-pptx-deck</code></td><td>CGPT UW PPTX Deck</td><td>Build and verify UW-branded PowerPoint decks.</td><td><code>$cgpt-uw-pptx-deck</code></td><td>none</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="skill-card"><h2>cgpt-academic-docx-authoring</h2><p class="short">Create and edit academic Word deliverables.</p><dl><dt>Skill file</dt><dd><code>cgpt-academic-docx-authoring/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-academic-docx-authoring/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-academic-docx-authoring</code></dd><dt>Default prompt</dt><dd>Create or revise this academic DOCX deliverable and verify the output.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Create, edit, structure, and verify academic Word DOCX artifacts such as manuscript drafts, cover letters, response letters, appendices, and supplementary files. Use when the user asks to author a new academic .docx, revise a Word manuscript, insert tables or figures, convert polished academic Markdown into DOCX, or prepare a journal-facing Word deliverable that is not primarily a JM/JMR formatter run.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-academic-proofreader</h2><p class="short">Produce report-only academic manuscript proofreading and readiness checks.</p><dl><dt>Skill file</dt><dd><code>cgpt-academic-proofreader/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-academic-proofreader/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-academic-proofreader</code></dd><dt>Default prompt</dt><dd>Proofread this academic manuscript and report prioritized issues with proposed fixes, without editing source files.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Report-only academic manuscript proofreading for grammar, journal style, argument flow, terminology, citation mechanics, statistical reporting, and Quarto cross-reference readiness; use before sharing, submission, or after manuscript revisions.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-adversarial-reviewer</h2><p class="short">Simulate a skeptical Reviewer 2 for academic manuscripts.</p><dl><dt>Skill file</dt><dd><code>cgpt-adversarial-reviewer/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-adversarial-reviewer/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-adversarial-reviewer</code></dd><dt>Default prompt</dt><dd>Run a report-only adversarial Reviewer 2 review of this academic work, with major issues, minor issues, empirical audit findings where relevant, and the highest-value revision.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Produce report-only adversarial academic manuscript reviews modeled on a skeptical Reviewer 2. Use for pre-submission stress tests, hostile-but-constructive referee simulation, empirical research audits, contribution/methodology/framing critiques, or quick devil&#x27;s-advocate challenges before revision.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-agent-report-persistence</h2><p class="short">Persist subagent reports before closeout</p><dl><dt>Skill file</dt><dd><code>cgpt-agent-report-persistence/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-agent-report-persistence/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-agent-report-persistence</code></dd><dt>Default prompt</dt><dd>Use $cgpt-agent-report-persistence to save the verifier return before closing this thread.</dd><dt>Resources</dt><dd>1 scripts</dd><dt>Trigger description</dt><dd>Save subagent, verifier, reviewer, synthesizer, or audit return text as durable files before closeout. Use when Codex delegates work to subagents, receives a verifier/proofreader/stats/reviewer report, references prior-thread output, closes a sub-session, or creates a handoff that depends on agent analysis that would otherwise live only in chat.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-author-reviser</h2><p class="short">Apply approved reviewer-driven manuscript revisions.</p><dl><dt>Skill file</dt><dd><code>cgpt-author-reviser/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-author-reviser/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-author-reviser</code></dd><dt>Default prompt</dt><dd>Build a revision plan and edit preview from this reviewer feedback before applying manuscript changes.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Execute approved academic manuscript revisions from referee reports, decision letters, or user-approved revision plans. Use when the user wants Codex to apply reviewer-driven changes to manuscript files, but only after backup, triage, edit preview, and explicit approval.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-backup</h2><p class="short">Create timestamped backups before risky edits.</p><dl><dt>Skill file</dt><dd><code>cgpt-backup/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-backup/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-backup</code></dd><dt>Default prompt</dt><dd>Back up the specified file or folder before continuing.</dd><dt>Resources</dt><dd>1 scripts</dd><dt>Trigger description</dt><dd>Create timestamped backup copies of important files or folders before editing, formatting, bulk replacement, risky automation, or user-requested backup work. Use when the user says backup, create a checkpoint, copy before editing, preserve the current version, or when a MEMORY/HANDOFF note marks a file as frozen or critical.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-canvas-flipcards</h2><p class="short">Create interactive HTML flipcards for Canvas.</p><dl><dt>Skill file</dt><dd><code>cgpt-canvas-flipcards/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-canvas-flipcards/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-canvas-flipcards</code></dd><dt>Default prompt</dt><dd>Create a self-contained flipcard HTML study tool and Canvas embed instructions for this topic.</dd><dt>Resources</dt><dd>6 examples</dd><dt>Trigger description</dt><dd>Create self-contained HTML study flipcards and Canvas LMS embed instructions for teaching modules. Use when the user asks for flip cards, study cards, interactive HTML review tools, Canvas iframe embeds, or troubleshooting Canvas pages that strip JavaScript.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-census-api</h2><p class="short">Plan and query U.S. Census data workflows.</p><dl><dt>Skill file</dt><dd><code>cgpt-census-api/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-census-api/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-census-api</code></dd><dt>Default prompt</dt><dd>Build a Census data query or reproducible R/Python workflow for this geography and variable set.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Query, plan, or generate R/Python/API workflows for U.S. Census Bureau data such as ACS, decennial census, population estimates, County Business Patterns, FIPS codes, geographies, variables, and demographic tables. Use when the user asks for Census data or public demographic/economic statistics.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-citation-bib-audit</h2><p class="short">Audit APA citations, BibTeX consistency, and user-triggered deep reference verification.</p><dl><dt>Skill file</dt><dd><code>cgpt-citation-bib-audit/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-citation-bib-audit/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-citation-bib-audit</code></dd><dt>Default prompt</dt><dd>Audit this manuscript&#x27;s citations and bibliography, then report issues without editing source files.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Compact Codex skill for APA citation checks, BibTeX consistency audits, Quarto citation audits, and user-triggered deep bibliography verification with source-cited results.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-data-viz-auditor</h2><p class="short">Audit figures, maps, labels, color, accessibility, and journal readiness.</p><dl><dt>Skill file</dt><dd><code>cgpt-data-viz-auditor/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-data-viz-auditor/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-data-viz-auditor</code></dd><dt>Default prompt</dt><dd>Use $cgpt-data-viz-auditor to audit this figure or plotting code and identify concrete fixes.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Audit statistical figures, charts, maps, and plotting code for accessibility, labels, color, export quality, and academic journal readiness. Use when reviewing ggplot2, matplotlib, rendered figures, manuscript graphics, maps, or multi-figure submissions before delivery or journal submission.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-insights</h2><p class="short">Generate local Codex or project activity insights reports.</p><dl><dt>Skill file</dt><dd><code>cgpt-insights/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-insights/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-insights</code></dd><dt>Default prompt</dt><dd>Create an insights report for recent local project activity.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Generate self-contained HTML activity reports from local Codex session evidence, project SESSION-LOG/HANDOFF/TASKS files, GitHub-root reports, or Claude/Cowork skill inventories. Use when the user asks for insights, usage report, activity report, weekly review, project status dashboard, what have I been working on, coding activity trends, or a polished REPORTS HTML summary.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-interactive-html-export-hardening</h2><p class="short">Harden editable single-file HTML export/import flows.</p><dl><dt>Skill file</dt><dd><code>cgpt-interactive-html-export-hardening/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-interactive-html-export-hardening/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-interactive-html-export-hardening</code></dd><dt>Default prompt</dt><dd>Harden this interactive HTML artifact so JSON and exported HTML preserve user edits.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Harden self-contained editable HTML artifacts so export/import, localStorage, controls, and re-opened HTML round trips preserve user edits without JavaScript parse failures.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-jm-jmr-docx</h2><p class="short">Format Word manuscripts with the PVB/JM/JMR DOCX pipeline.</p><dl><dt>Skill file</dt><dd><code>cgpt-jm-jmr-docx/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-jm-jmr-docx/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-jm-jmr-docx</code></dd><dt>Default prompt</dt><dd>Run the current PVB/JM/JMR DOCX formatting pipeline and verify the output.</dd><dt>Resources</dt><dd>3 scripts, 2 refs</dd><dt>Trigger description</dt><dd>Convert, format, post-process, and verify Word DOCX manuscripts for Journal of Marketing, Journal of Marketing Research, APA-style management/marketing submissions, and PVB academic manuscript style. Use when the user asks to convert a Word docx into JM or JMR style, format a manuscript for submission, fix APA-style tables or references, run the PVB DOCX formatter, clean a Quarto/Pandoc-rendered DOCX, style bibliography entries, or prepare a submission-ready Word file.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-line-endings-hygiene</h2><p class="short">Avoid noisy CRLF/LF diffs</p><dl><dt>Skill file</dt><dd><code>cgpt-line-endings-hygiene/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-line-endings-hygiene/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-line-endings-hygiene</code></dd><dt>Default prompt</dt><dd>Use $cgpt-line-endings-hygiene before editing this Windows-origin file.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Detect and prevent CRLF/LF line-ending problems in Windows-origin repositories and manuscripts. Use before editing files created by RStudio, Word-adjacent tooling, PowerShell, bash, Cowork, or Codex; when Git shows every line changed; when `.gitattributes`, `core.autocrlf`, NUL bytes, carriage returns, or noisy diffs appear; or before line-ending normalization work.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-manuscript-recovery</h2><p class="short">Recover manuscript status and next actions</p><dl><dt>Skill file</dt><dd><code>cgpt-manuscript-recovery/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-manuscript-recovery/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-manuscript-recovery</code></dd><dt>Default prompt</dt><dd>Use $cgpt-manuscript-recovery to inspect this manuscript folder and produce a recovery map.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Inspect an academic manuscript or revision folder after a long break and produce a durable recovery map. Use when the user asks to recover manuscript status, find the live version, identify backups/submission files/reviewer letters/Turnitin reports, resume a revision, reconstruct next actions, or create a recovery handoff before editing a manuscript.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-netlify-deploy</h2><p class="short">Deploy React SPAs on Netlify safely.</p><dl><dt>Skill file</dt><dd><code>cgpt-netlify-deploy/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-netlify-deploy/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-netlify-deploy</code></dd><dt>Default prompt</dt><dd>Prepare and verify this app for Netlify deployment.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Prepare, deploy, and verify Vite or React single-page apps on Netlify. Use when the user asks to deploy to Netlify, fix a Netlify build, add SPA routing redirects, configure VITE environment variables, link GitHub to Netlify, or diagnose deployment failures such as vite not found, blank screen, cached deploys, or direct-route 404s.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-onedrive-git-safety</h2><p class="short">Use Git safely in synced Windows repos</p><dl><dt>Skill file</dt><dd><code>cgpt-onedrive-git-safety/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-onedrive-git-safety/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-onedrive-git-safety</code></dd><dt>Default prompt</dt><dd>Use $cgpt-onedrive-git-safety before changing Git state in this OneDrive repository.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Work safely with Git repositories stored under OneDrive, Google Drive, Dropbox, iCloud Drive, or other synced Windows folders. Use before git status/add/commit/diff/reset/checkout in synced repos, when handling dirty worktrees, no-touch sibling repos, line-ending phantoms, stuck index.lock files, or closeout claims about tests/builds on synced filesystems.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-portfolio-dashboard-interactive</h2><p class="short">Build the editable PVB portfolio dashboard with v4 taxonomy.</p><dl><dt>Skill file</dt><dd><code>cgpt-portfolio-dashboard-interactive/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-portfolio-dashboard-interactive/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-portfolio-dashboard-interactive</code></dd><dt>Default prompt</dt><dd>Build or revise the interactive PVB portfolio dashboard with JSON-canonical state and hardened export.</dd><dt>Resources</dt><dd>1 scripts</dd><dt>Trigger description</dt><dd>Build and maintain the editable PVB research portfolio dashboard with v4 operating-state taxonomy, JSON-canonical state, hardened export/import, autosave, and validation.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-presentation-prep</h2><p class="short">Verify manuscript facts and visual assets before deck generation.</p><dl><dt>Skill file</dt><dd><code>cgpt-presentation-prep/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-presentation-prep/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-presentation-prep</code></dd><dt>Default prompt</dt><dd>Extract and verify the source-backed facts, numbers, and visuals needed before building this presentation.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Extract and verify ground-truth claims, numbers, figures, tables, and visual assets before building a research presentation. Use before manuscript-to-deck work, academic talks, slide-number checks, presentation prep, source verification, figure audits, and requests to confirm that slide values match the paper or report.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-project-scaffold</h2><p class="short">Plan and create research or teaching project workspaces.</p><dl><dt>Skill file</dt><dd><code>cgpt-project-scaffold/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-project-scaffold/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-project-scaffold</code></dd><dt>Default prompt</dt><dd>Propose a conservative project scaffold first, then create it only after approval.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Plan and create conservative research or teaching project folder scaffolds with tracking files, handoffs, and template-based starter structure. Use when the user asks to start a new manuscript project, teaching module, course folder, or project workspace.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-quarto-debugger</h2><p class="short">Fix Quarto source, YAML, citations, crossrefs, and includes.</p><dl><dt>Skill file</dt><dd><code>cgpt-quarto-debugger/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-quarto-debugger/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-quarto-debugger</code></dd><dt>Default prompt</dt><dd>Use $cgpt-quarto-debugger to diagnose this Quarto source/render failure and verify the fix.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Diagnose and fix Quarto source problems in `.qmd` projects, especially YAML/front matter, citations, cross-references, includes, filters, and Pandoc/engine errors. Use when Quarto renders fail, output shows unresolved references, citations do not resolve, includes are missing, or a user shares a Quarto error and asks what it means.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-quarto-render-windows</h2><p class="short">Harden and verify Quarto renders on Windows.</p><dl><dt>Skill file</dt><dd><code>cgpt-quarto-render-windows/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-quarto-render-windows/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-quarto-render-windows</code></dd><dt>Default prompt</dt><dd>Use $cgpt-quarto-render-windows to diagnose this Windows Quarto render, stop after deterministic failures, and verify output freshness.</dd><dt>Resources</dt><dd>1 assets</dd><dt>Trigger description</dt><dd>Diagnose and harden Quarto render automation on Windows, especially from spawned PowerShell, Codex, Desktop Commander, scheduled tasks, Cowork handoffs, or CI. Use when quarto render fails because cmd/quarto/R is not on PATH, PATHEXT is stripped, artifacts are stale despite exit code 0, output paths are wrong, rBinaryPath/checkRBinary/cmd.exe spawn errors appear, or when creating reusable Windows render scripts for `.qmd` projects.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-r-debugger</h2><p class="short">Run reproducible R debugging, profiling, and edge-case tests.</p><dl><dt>Skill file</dt><dd><code>cgpt-r-debugger/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-r-debugger/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-r-debugger</code></dd><dt>Default prompt</dt><dd>Debug this R code with a reproducible harness, profile bottlenecks if needed, and report the evidence before editing files.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Reproducible R debugging, profiling, and edge-case testing for scripts, functions, Quarto analysis chunks, and data pipelines; use when the user asks to diagnose incorrect R output, slow code, brittle behavior, vectorization options, memory use, or runtime failures.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-render-check</h2><p class="short">Validate rendered documents, decks, PDFs, and HTML outputs.</p><dl><dt>Skill file</dt><dd><code>cgpt-render-check/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-render-check/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-render-check</code></dd><dt>Default prompt</dt><dd>Validate this rendered output and report pass, warning, and failure checks.</dd><dt>Resources</dt><dd>1 scripts</dd><dt>Trigger description</dt><dd>Validate rendered documents and presentation outputs after Quarto, Pandoc, python-pptx, document export, HTML generation, PDF export, or report build work. Use when the user asks to check, validate, QA, inspect, smoke test, or deliver a rendered DOCX, PPTX, PDF, HTML, Markdown, or generated report.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-reviewer-response</h2><p class="short">Draft and audit response-to-reviewers letters.</p><dl><dt>Skill file</dt><dd><code>cgpt-reviewer-response/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-reviewer-response/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-reviewer-response</code></dd><dt>Default prompt</dt><dd>Draft a response-to-reviewers letter from these comments and revision notes.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Draft, revise, audit, and package academic response-to-reviewers letters, editor responses, revision memos, and R&amp;R correspondence. Use when the user shares peer-review comments, decision letters, reviewer feedback, associate editor guidance, or asks for a response matrix, rebuttal, revision strategy, cover response, or journal-facing revision correspondence.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-stats-audit</h2><p class="short">Run report-only statistical audits against manuscript numbers and source data.</p><dl><dt>Skill file</dt><dd><code>cgpt-stats-audit/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-stats-audit/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-stats-audit</code></dd><dt>Default prompt</dt><dd>Audit this manuscript&#x27;s reported statistics against source data and report mismatches without editing manuscripts.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Compact Codex skill for report-only statistical audits of manuscripts against source data, extracted numerals, sample labels, figures, and cross-references.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-thread-closeout</h2><p class="short">Create durable closeout and handoff artifacts.</p><dl><dt>Skill file</dt><dd><code>cgpt-thread-closeout/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-thread-closeout/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-thread-closeout</code></dd><dt>Default prompt</dt><dd>Close out this thread with status, handoff, and next-task notes.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Use when the user asks CGPT/Codex to close out, wrap up, end a thread, prepare a handoff, save session memory, create next-thread instructions, update status logs, archive a conversation, or make sure a project can be resumed cleanly later.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-tool-routing-lessons</h2><p class="short">Choose safe Codex file and connector routing.</p><dl><dt>Skill file</dt><dd><code>cgpt-tool-routing-lessons/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-tool-routing-lessons/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-tool-routing-lessons</code></dd><dt>Default prompt</dt><dd>Diagnose the safest Codex tool route for this path, connector, or sandbox-boundary task.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Apply Codex-native routing lessons for filesystem sandbox boundaries, connector scopes, local workspace paths, escalation, and tool choice. Use when file access fails, paths are outside the workspace, connectors may be needed, writes require approval, or a task crosses local/cloud/profile directories.</dd></dl></section>
+    <section class="skill-card"><h2>cgpt-uw-pptx-deck</h2><p class="short">Build and verify UW-branded PowerPoint decks.</p><dl><dt>Skill file</dt><dd><code>cgpt-uw-pptx-deck/SKILL.md</code></dd><dt>Agent metadata</dt><dd><code>cgpt-uw-pptx-deck/agents/openai.yaml</code></dd><dt>Invocation</dt><dd><code>$cgpt-uw-pptx-deck</code></dd><dt>Default prompt</dt><dd>Create or polish this UW PowerPoint deck and verify branding, readability, and source-backed claims.</dd><dt>Resources</dt><dd>none</dd><dt>Trigger description</dt><dd>Build, rebuild, polish, audit, render, or export University of Washington and UW Bothell PowerPoint decks. Use for UW-branded PPTX work, academic talks, stakeholder briefings, teaching decks, manuscript-to-deck conversions, slide visual QA, UW colors, Block W cover slides, accessibility checks, or requests to make a deck look presentation-ready.</dd></dl></section>
+  </main>
+</body>
+</html>

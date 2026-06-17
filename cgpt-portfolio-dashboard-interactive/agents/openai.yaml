@@ -1,0 +1,4 @@
+interface:
+  display_name: "CGPT Portfolio Dashboard Interactive"
+  short_description: "Build the editable PVB portfolio dashboard with v4 taxonomy."
+  default_prompt: "Build or revise the interactive PVB portfolio dashboard with JSON-canonical state and hardened export."

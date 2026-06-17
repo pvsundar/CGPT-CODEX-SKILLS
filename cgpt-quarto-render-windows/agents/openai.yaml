@@ -1,4 +1,4 @@
 interface:
   display_name: "CGPT Quarto Render Windows"
-  short_description: "Harden Quarto renders on Windows"
-  default_prompt: "Use $cgpt-quarto-render-windows to fix and verify this Windows Quarto render."
+  short_description: "Harden and verify Quarto renders on Windows."
+  default_prompt: "Use $cgpt-quarto-render-windows to diagnose this Windows Quarto render, stop after deterministic failures, and verify output freshness."

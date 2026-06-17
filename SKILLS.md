@@ -2,6 +2,12 @@
 
 This index lists the Codex-owned skills currently staged in this repository.
 
+For the full generated inventory, including agent display names, default prompts,
+trigger descriptions, and bundled resources, use:
+
+- `CGPT-CODEX-SKILLS-MASTER-INVENTORY.md`
+- `CGPT-CODEX-SKILLS-MASTER-INVENTORY.html`
+
 | Skill | Purpose |
 | --- | --- |
 | `cgpt-academic-docx-authoring` | Create, edit, structure, and verify academic Word DOCX artifacts. |
@@ -15,12 +21,14 @@ This index lists the Codex-owned skills currently staged in this repository.
 | `cgpt-citation-bib-audit` | Audit APA citations, BibTeX consistency, Quarto citations, and bibliography verification. |
 | `cgpt-data-viz-auditor` | Audit figures, charts, maps, and plotting code for accessibility and journal readiness. |
 | `cgpt-insights` | Generate self-contained HTML activity reports from local Codex session evidence. |
+| `cgpt-interactive-html-export-hardening` | Harden editable single-file HTML export/import flows so user edits round-trip. |
 | `cgpt-jm-jmr-docx` | Convert, format, post-process, and verify JM/JMR and APA-style Word manuscripts. |
 | `cgpt-line-endings-hygiene` | Detect and prevent CRLF/LF line-ending churn in Windows-origin work. |
 | `cgpt-manuscript-recovery` | Recover academic manuscript status and produce durable recovery maps. |
 | `cgpt-netlify-deploy` | Prepare, deploy, and verify Vite or React single-page apps on Netlify. |
 | `cgpt-onedrive-git-safety` | Work safely with Git repositories stored under OneDrive or other synced folders. |
 | `cgpt-presentation-prep` | Verify claims, numbers, figures, tables, and visual assets before research deck creation. |
+| `cgpt-portfolio-dashboard-interactive` | Build the editable PVB portfolio dashboard with v4 taxonomy and hardened export. |
 | `cgpt-project-scaffold` | Plan and create conservative research or teaching project folder scaffolds. |
 | `cgpt-quarto-debugger` | Diagnose and fix Quarto source problems such as YAML, citations, includes, and filters. |
 | `cgpt-quarto-render-windows` | Diagnose and harden Quarto render automation on Windows. |
@@ -36,6 +44,7 @@ This index lists the Codex-owned skills currently staged in this repository.
 
 When a skill is added, renamed, or materially changed:
 
-1. Update this file.
-2. Keep the folder name, `SKILL.md` front matter `name:`, and agent prompt aligned.
-3. Run `python .\scripts\quick_validate.py`.
+1. Run `python .\scripts\build_skill_inventory.py`.
+2. Update this quick index if the summary list needs to change.
+3. Keep the folder name, `SKILL.md` front matter `name:`, and agent prompt aligned.
+4. Run `python .\scripts\quick_validate.py`.

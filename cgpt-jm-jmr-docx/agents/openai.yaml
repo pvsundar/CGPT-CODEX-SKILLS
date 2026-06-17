@@ -1,4 +1,4 @@
 interface:
   display_name: "CGPT JM/JMR DOCX"
-  short_description: "Format Word manuscripts for JM and JMR."
-  default_prompt: "Convert this Word manuscript into JM or JMR submission style."
+  short_description: "Format Word manuscripts with the PVB/JM/JMR DOCX pipeline."
+  default_prompt: "Run the current PVB/JM/JMR DOCX formatting pipeline and verify the output."

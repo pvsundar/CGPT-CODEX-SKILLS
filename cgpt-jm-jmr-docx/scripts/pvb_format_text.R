@@ -275,9 +275,9 @@ STYLE_SPECS <- list(
   ),
 
   Compact = list(
-    jc = "both", line = LINE_SINGLE, before = 60L, after = 0L,
+    jc = "both", line = LINE_150, before = 0L, after = 0L,
     firstLine = 0L, indLeft = 100L, indRight = 100L, keepNext = FALSE,
-    sz = SZ_11PT, bold = FALSE, italic = NA
+    sz = SZ_12PT, bold = FALSE, italic = NA
   ),
 
   FootnoteText = list(
