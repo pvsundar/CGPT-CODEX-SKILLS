@@ -39,8 +39,8 @@
 #   FirstParagraph: left, 12pt, 1.5× spacing, no first-line indent
 #   BodyText:       left, 12pt, 1.5× spacing, 0.5" first-line indent
 #   Normal:         left, 12pt, 1.5× spacing, 0.5" first-line indent
-#   Bibliography:   justified, 11pt, 1.15× spacing, 0.5" hanging indent
-#   Bibliography-JM:justified, 12pt, 1.15× spacing, 450tw hanging indent
+#   Bibliography:   left, 11pt, 1.15× spacing, 0.5" hanging indent
+#   Bibliography-JM:left, 12pt, 1.15× spacing, 450tw hanging indent
 #   Caption:        left, bold, 11pt, single spacing, no indent
 #   TableCaption:   same as Caption + keepNext
 #   PVBTableNote:   left, 10pt, italic, 1.15× spacing, 200tw after (breathing room before next body para)
@@ -237,14 +237,14 @@ STYLE_SPECS <- list(
   ),
 
   Bibliography = list(
-    jc = "both", line = LINE_115, before = 0L, after = 120L,
+    jc = "left", line = LINE_115, before = 0L, after = 120L,
     firstLine = 0L, indLeft = INDENT_HALF_INCH, indRight = 0L,
     hanging = INDENT_HALF_INCH, keepNext = FALSE,
     sz = SZ_11PT, bold = FALSE, italic = NA
   ),
 
   `Bibliography-JM` = list(
-    jc = "both", line = LINE_115, before = 0L, after = 0L,
+    jc = "left", line = LINE_115, before = 0L, after = 0L,
     firstLine = 0L, indLeft = 450L, indRight = 0L,
     hanging = 450L, keepNext = FALSE,
     sz = SZ_12PT, bold = FALSE, italic = NA
